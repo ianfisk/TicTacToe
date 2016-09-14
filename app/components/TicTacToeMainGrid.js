@@ -55,7 +55,7 @@ class TicTacToeMainGrid extends Component {
 						</Col>
 						<Col style={gridStyles.verticalSeparator}></Col>
 						<Col>
-							<Cell letter='X' />
+							<Cell letter='' />
 						</Col>
 					</Row>
 				</Grid>

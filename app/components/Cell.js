@@ -5,9 +5,6 @@ import { Text, TouchableHighlight } from 'react-native';
 import cellStyles from '../styles/cellStyles';
 
 class Cell extends Component {
-	static propTypes = {
-		letter: PropTypes.string.isRequired
-	}
 	render() {
 		return (
 			<TouchableHighlight style={cellStyles.cell}>
@@ -18,5 +15,13 @@ class Cell extends Component {
 		);
 	}
 }
+
+Cell.propTypes = {
+	letter: PropTypes.oneOf(['', 'X', 'x', 'O', 'o']).isRequired
+};
+
+Cell.defaultProps = {
+	letter: ''
+};
 
 export default Cell;
