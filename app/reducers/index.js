@@ -1,13 +1,12 @@
 'use strict';
 
 import { combineReducers } from 'redux';
-
-const firstReducer = (state = {}, action) => {
-		return state;
-};
+import gridState from './gridState';
+import userCharacter from './userCharacter';
 
 const ticTacToeApp = combineReducers({
-	firstReducer
+  gridState,
+  userCharacter
 });
 
-export default firstReducer;
+export default ticTacToeApp;

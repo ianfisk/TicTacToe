@@ -4,24 +4,23 @@ import React, { Component, PropTypes } from 'react';
 import { Text, TouchableHighlight } from 'react-native';
 import cellStyles from '../styles/cellStyles';
 
-class Cell extends Component {
-	render() {
-		return (
-			<TouchableHighlight style={cellStyles.cell}>
-				<Text style={cellStyles.cellText}>
-					{this.props.letter.toUpperCase()}
-				</Text>
-			</TouchableHighlight>
-		);
-	}
+const Cell = ({ cellIndex, letter, userCharacter, onCellClicked }) => {
+  return (
+    <TouchableHighlight style={cellStyles.cell} underlayColor='#dddddd' onPress={() => onCellClicked(cellIndex, userCharacter)}>
+      <Text style={cellStyles.cellText}>
+        {letter}
+      </Text>
+    </TouchableHighlight>
+  );
 }
 
 Cell.propTypes = {
-	letter: PropTypes.oneOf(['', 'X', 'x', 'O', 'o']).isRequired
+  letter: PropTypes.oneOf(['', 'X', 'O']),
+  onCellClicked: PropTypes.func.isRequired
 };
 
 Cell.defaultProps = {
-	letter: ''
+  letter: ''
 };
 
 export default Cell;

@@ -4,11 +4,12 @@ export default StyleSheet.create({
   cell: {
     margin: 5,
     flex: 1,
+    borderRadius: 3,
     justifyContent: 'center',
     alignItems: 'center'
   },
   cellText: {
-    fontSize: 80,
+    fontSize: 75,
     fontFamily: 'PingFangHK-Ultralight'
   }
 });
