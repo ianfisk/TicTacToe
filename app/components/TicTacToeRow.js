@@ -3,22 +3,35 @@
 import React from 'react';
 import gridStyles from '../styles/gridStyles';
 import { Col, Row } from 'react-native-easy-grid';
-import Cell from './Cell';
+import CellContainer from '../containers/CellContainer';
+import convertTo2DIndex from '../utility/generalUtility';
 
-const TicTacToeRow = ({ cellIndexStart, gridState, userCharacter, onCellClicked }) => (
-  <Row style={gridStyles.row}>
-    <Col>
-      <Cell cellIndex={cellIndexStart} letter={gridState[cellIndexStart]} userCharacter={userCharacter} onCellClicked={onCellClicked} />
-    </Col>
-    <Col style={gridStyles.verticalSeparator}></Col>
-    <Col>
-      <Cell cellIndex={cellIndexStart + 1} letter={gridState[cellIndexStart + 1]} userCharacter={userCharacter} onCellClicked={onCellClicked} />
-    </Col>
-    <Col style={gridStyles.verticalSeparator}></Col>
-    <Col>
-      <Cell cellIndex={cellIndexStart + 2} letter={gridState[cellIndexStart + 2]} userCharacter={userCharacter} onCellClicked={onCellClicked} />
-    </Col>
-  </Row>
-)
+const TicTacToeRow = ({ cellIndexStart, gridState, userCharacter, cellsActive, onCellClicked }) => {
+  let twoDimensionalIndeces = convertTo2DIndex(cellIndexStart, 3);
+  return (
+    <Row style={gridStyles.row}>
+      <Col>
+        <CellContainer
+          cellIndex={cellIndexStart}
+          letter={gridState[twoDimensionalIndeces.row][twoDimensionalIndeces.column]}
+        />
+      </Col>
+      <Col style={gridStyles.verticalSeparator}></Col>
+      <Col>
+        <CellContainer
+          cellIndex={cellIndexStart + 1}
+          letter={gridState[twoDimensionalIndeces.row][twoDimensionalIndeces.column + 1]}
+        />
+      </Col>
+      <Col style={gridStyles.verticalSeparator}></Col>
+      <Col>
+        <CellContainer
+          cellIndex={cellIndexStart + 2}
+          letter={gridState[twoDimensionalIndeces.row][twoDimensionalIndeces.column + 2]}
+        />
+      </Col>
+    </Row>
+  )
+}
 
 export default TicTacToeRow;

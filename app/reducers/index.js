@@ -3,10 +3,12 @@
 import { combineReducers } from 'redux';
 import gridState from './gridState';
 import userCharacter from './userCharacter';
+import cellsActive from './cellsActive';
 
 const ticTacToeApp = combineReducers({
   gridState,
-  userCharacter
+  userCharacter,
+  cellsActive
 });
 
 export default ticTacToeApp;

@@ -1,12 +1,12 @@
 'use strict';
 
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { Text, TouchableHighlight } from 'react-native';
 import cellStyles from '../styles/cellStyles';
 
-const Cell = ({ cellIndex, letter, userCharacter, onCellClicked }) => {
+const Cell = ({ cellIndex, letter, userCharacter, cellsActive, onCellClicked }) => {
   return (
-    <TouchableHighlight style={cellStyles.cell} underlayColor='#dddddd' onPress={() => onCellClicked(cellIndex, userCharacter)}>
+    <TouchableHighlight style={cellStyles.cell} underlayColor='#dddddd' onPress={() => onCellClicked(cellIndex, userCharacter, cellsActive, letter)}>
       <Text style={cellStyles.cellText}>
         {letter}
       </Text>
